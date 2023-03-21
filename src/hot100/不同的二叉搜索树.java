@@ -14,9 +14,7 @@ public class 不同的二叉搜索树 {
         cache[1] = 1;
         for (int i = 2; i <= n; i++) {
             for (int j = 1; j <= i; j++) {
-                int left = cache[j - 1];
-                int right = cache[i - j];
-                cache[i] += left * right;
+                cache[i] += cache[j - 1] * cache[i - j];
             }
         }
         return cache[n];
